@@ -17,7 +17,9 @@ const Header = () => {
                     <Button variant="outline">Dashboard</Button>
                 </Link>
                     :
-                    <Button>Get started</Button>
+                    <Link href="/create">
+                        <Button>Get started</Button>
+                    </Link>
                 }
                 <UserButton />
             </div >
