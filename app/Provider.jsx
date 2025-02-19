@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 import Header from './_components/Header'
 import { useUser } from '@clerk/nextjs'
 import axios from 'axios';
@@ -27,9 +27,12 @@ const Provider = ({ children }) => {
         <div>
             <UserDetailContext.Provider value={{ userDetail, setUserDetail }}>
                 <Header />
-                <div className='px-10 lg:px-32 xl:px-48 2xl-56'>
-                    {children}
-                </div>
+                <Suspense fallback={<div>Loading...</div>}>
+
+                    <div className='px-10 lg:px-32 xl:px-48 2xl-56'>
+                        {children}
+                    </div>
+                </Suspense>
             </UserDetailContext.Provider>
         </div>
     )
