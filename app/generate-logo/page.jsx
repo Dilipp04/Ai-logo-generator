@@ -17,9 +17,9 @@ const generateLogo = () => {
     if (type != "Free") {
         return (
             <>
-                <div class="flex justify-center items-center mt-32 text-primary">
-                    <h1 class="text-4xl font-bold relative ">
-                        Coming Soon<span class="dots"></span>
+                <div className="flex justify-center items-center mt-32 text-primary">
+                    <h1 className="text-4xl font-bold relative ">
+                        Coming Soon<span className="dots"></span>
                     </h1>
                 </div>
             </>
@@ -65,14 +65,15 @@ const generateLogo = () => {
 
     return (
         <div className='flex justify-center  '>
-            {!Loading ?
-                <Loader />
-                :
-                <div className='text-center mt-20'>
-                    <Image src={logoImage} alt='Logo' width={400} height={400} />
-                    <h2 className='font-bold'>{formData?.title}</h2>
-                    <p className='text-s text-zinc-400`'>{formData?.desc}</p>
-                </div>
+            {
+                Loading ? <Loader /> :
+                    <div className='text-center mt-20'>
+                        <Image src={logoImage ? logoImage : "/loading.gif"} alt='Logo' width={400} height={400} />
+                        <h2 className='font-bold'>{formData?.title}</h2>
+                        <p className='text-s text-zinc-400`'>{formData?.desc}</p>
+                    </div>
+
+
             }
         </div>
     )

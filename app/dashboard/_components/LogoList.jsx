@@ -17,7 +17,6 @@ const LogoList = () => {
         const querySnapShot = await getDocs(collection(db, "users", userDetail?.email, "logos"))
         setLogoList([])
         querySnapShot.forEach((doc) => {
-            console.log(doc.data())
             setLogoList(prev => [...prev, doc.data()])
         })
     }
